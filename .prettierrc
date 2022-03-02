@@ -1,0 +1,14 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "quoteProps": "consistent",
+  "arrowParens": "always",
+  "insertPragma": true,
+  "vueIndentScriptAndStyle": true,
+  "printWidth": 120,
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote":false 
+
+}
+
