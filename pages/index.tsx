@@ -1,46 +1,74 @@
 /** @format */
 
-import Link from "@/components/Link";
 import { PageSEO } from "@/components/SEO";
 import siteMetadata from "@/data/siteMetadata";
+import { useIsPresent } from "framer-motion";
+import Img from "next/image";
+import LayoutWrapper from "../components/LayoutWrapper";
+import Link from "@/components/Link";
+import ProjectCard from "@/components/ProjectCard";
 
 const Home = () => {
+  const isPresent = useIsPresent();
+  let arr = [1, 2, 3];
+
   return (
-    <>
+    <LayoutWrapper>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="p-1 flex flex-col  items-center bg-red rounded-full">
-        <div>elemenent 1</div>
-        <div className=" dark:text-blue-dark  ">elemenent 2</div>
-        <button className="px-5 py-1 text-lg text-purple-600 font-extralight rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
-          Message
-        </button>
+
+      {/* main home */}
+      <div className="prose-2xl   w-full  bg-cover bg-[url('/static/images/background-mb-3.svg')] lg:prose-h1:h-32	lg:h-max  lg:bg-cover lg:bg-[url('/static/images/background12.svg')]  ">
+        <h3 className="text-primary">Hi, I'm Naim</h3>
+        <h1 className=" w-full text-primary  font-extrabold text-4xl lg:text-8xl">I build things with code & coffee</h1>
+        <div className=" text-gray-500 text-xl sm:w-[60%]">
+          I'm a self taught full stack web developer based in pune, India. passionate about building exceptional,
+          high-quality web and mobile apps.
+        </div>
+
+        <div className="my-10">
+          <Link href={"/about"}>
+            <button className="btn btn-primary">About</button>
+          </Link>
+        </div>
+      </div>
+      {/* projects list */}
+      {/* projects header */}
+      <div className="my-10">
+        <div className="flex w-full justify-center items-center">
+          <div className="text-primary w-[70%] font-bold text-2xl lg:text-4xl lg:w-1/2">Some things i built</div>
+          <div className="  w-[30%]  divider lg:w-full" />
+        </div>
+      </div>
+      {/* <div className="card  lg:card-side bg-base-100 shadow-lg">
+        <Img className="w-full h-full" src="https://api.lorem.space/image/album" alt="Album" width={500} height={400} />{" "}
+        <div className="card-body ">
+          <h2 className="card-title text-2xl">New album is released!</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nostrum sit ullam amet nobis temporibus
+            officia sunt ducimus alias animi earum eveniet esse, cumque at odit expedita repellat. Est, sed!
+          </p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">Listen</button>
+          </div>
+        </div>
+      </div> */}
+
+      {/* project card */}
+
+      <div>
+        <div className="flex flex-col">
+          {arr.map((id) => {
+            return <ProjectCard key={id} />;
+          })}
+        </div>
       </div>
 
-      {/* <div>
-        <button className="btn">Button</button>
-        <button className="btn btn-primary">Button</button>
-        <button className="btn btn-secondary">Button</button>
-        <button className="btn btn-accent">Button</button>
-        <button className="btn btn-ghost">Button</button>
-        <button className="btn btn-link">Button</button>
-      </div> */}
-      <button data-set-theme="" data-act-class="ACTIVECLASS"></button>
-      <button className="btn btn-dark" data-set-theme="dark" data-act-class="ACTIVECLASS">
-        dark
-      </button>
-      <button className="btn btn-primary" data-set-theme="light" data-act-class="ACTIVECLASS">
-        light
-      </button>
-      <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
-        Toggle
-      </button>
-      <button
-        type="button"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Default
-      </button>
-    </>
+      <div className="my-5">
+        <Link href={"/projects"}>
+          <button className="btn btn-primary">All Projects</button>
+        </Link>
+      </div>
+    </LayoutWrapper>
   );
 };
 export default Home;

@@ -4,6 +4,9 @@ import { getAllFilesFrontMatter } from "@/lib/mdx";
 import siteMetadata from "@/data/siteMetadata";
 import ListLayout from "@/layouts/ListLayout";
 import { PageSEO } from "@/components/SEO";
+import WithTranstion from "@/components/WithTransition";
+import WithTransition from "@/components/WithTransition";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 export const POSTS_PER_PAGE = 5;
 
@@ -18,11 +21,14 @@ export async function getStaticProps() {
   return { props: { initialDisplayPosts, posts, pagination } };
 }
 
-export default function Blog({ posts, initialDisplayPosts, pagination }) {
+function Blog({ posts, initialDisplayPosts, pagination }) {
   return (
     <>
-      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <ListLayout posts={posts} initialDisplayPosts={initialDisplayPosts} pagination={pagination} title="All Posts" />
+      <LayoutWrapper>
+        <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+        <ListLayout posts={posts} initialDisplayPosts={initialDisplayPosts} pagination={pagination} title="All Posts" />
+      </LayoutWrapper>
     </>
   );
 }
+export default Blog;

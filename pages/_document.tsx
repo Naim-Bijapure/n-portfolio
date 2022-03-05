@@ -23,7 +23,8 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body className="antialiased text-black bg-white dark:bg-gray-900 dark:text-white">
+        {/* <body className="antialiased text-black bg-white dark:bg-gray-900 dark:text-white"> */}
+        <body className="bg-base-100">
           <Main />
           <NextScript />
         </body>

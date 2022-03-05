@@ -1,22 +1,33 @@
 /** @format */
 
-import siteMetadata from "@/data/siteMetadata";
 import headerNavLinks from "@/data/headerNavLinks";
-import Logo from "@/data/logo.svg";
-import Link from "./Link";
-import SectionContainer from "./SectionContainer";
-import Footer from "./Footer";
-import MobileNav from "./MobileNav";
-import ThemeSwitch from "./ThemeSwitch";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
+import Footer from "./Footer";
+import Link from "./Link";
+import MobileNav from "./MobileNav";
+import SectionContainer from "./SectionContainer";
+import ThemeSwitch from "./ThemeSwitch";
+
+const variants = {
+  hidden: { opacity: 0, x: -200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: -100 },
+};
+
+// const variants = {
+//   hidden: { opacity: 0, x: -200, y: 0 },
+//   enter: { opacity: 1, x: 0, y: 0 },
+//   exit: { opacity: 0, x: 0, y: -100 },
+// };
 
 const LayoutWrapper = ({ children }) => {
   const router = useRouter();
 
   return (
     <SectionContainer>
-      <div className="flex flex-col justify-between h-screen   ">
+      <div className="flex flex-col justify-between h-screen ">
         <header className="flex items-center justify-between py-10 ">
           <div>
             <Link href="/" aria-label="Naim portfolio">
@@ -43,22 +54,35 @@ const LayoutWrapper = ({ children }) => {
             </Link>
           </div>
           <div className="flex items-center text-base leading-5 ">
-            <div className="hidden sm:block">
+            <div className="hidden sm:block  mx-5">
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                  // className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                  className="p-1 font-medium  sm:p-4"
                 >
                   {link.title}
                 </Link>
               ))}
             </div>
-            <ThemeSwitch />
+
             <MobileNav />
+            <ThemeSwitch />
           </div>
         </header>
-        <main className="mb-auto">{children}</main>
+        {/* <main className="mb-auto"> */}
+        <motion.main
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          transition={{ type: "linear" }}
+          className="mb-auto"
+        >
+          {children}
+        </motion.main>
+        {/* </main> */}
         <Footer />
       </div>
     </SectionContainer>

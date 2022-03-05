@@ -5,23 +5,34 @@ import PageTitle from "@/components/PageTitle";
 import generateRss from "@/lib/generate-rss";
 import { MDXLayoutRenderer } from "@/components/MDXComponents";
 import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from "@/lib/mdx";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 // const DEFAULT_LAYOUT = 'PostLayout'
 const DEFAULT_LAYOUT = "PostSimple";
 
 export async function getStaticPaths() {
   const posts = getFiles("blog");
+  let paramsData = posts.map((p) => ({
+    params: {
+      slug: formatSlug(p).split("/"),
+    },
+  }));
+
   return {
-    paths: posts.map((p) => ({
-      params: {
-        slug: formatSlug(p).split("/"),
-      },
-    })),
+    paths: paramsData,
+    // paths: [
+    //   {
+    //     params: {
+    //       slug: ["new-features-in-v1"],
+    //     },
+    //   },
+    // ],
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
+  console.log("params: ", params);
   const allPosts = await getAllFilesFrontMatter("blog");
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === params.slug.join("/"));
   const prev = allPosts[postIndex + 1] || null;
@@ -47,7 +58,7 @@ export default function Blog({ post, authorDetails, prev, next }) {
   const { mdxSource, toc, frontMatter } = post;
 
   return (
-    <>
+    <LayoutWrapper>
       {frontMatter.draft !== true ? (
         <MDXLayoutRenderer
           layout={frontMatter.layout || DEFAULT_LAYOUT}
@@ -68,6 +79,6 @@ export default function Blog({ post, authorDetails, prev, next }) {
           </PageTitle>
         </div>
       )}
-    </>
+    </LayoutWrapper>
   );
 }

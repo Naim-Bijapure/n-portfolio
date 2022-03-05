@@ -1,7 +1,15 @@
-.bg-red {
-  border: 1px solid red;
-}
+/** @format */
 
-.bg-blue {
-  border: 1px solid blue;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bd-red {
+    border: 1px solid red;
+  }
+
+  .bd-blue {
+    border: 1px solid blue;
+  }
 }

@@ -1,31 +1,43 @@
 /** @format */
 
-import "@/css/global.scss";
-import "@/css/tailwind.css";
-import "@/css/prism.css";
-
-import { ThemeProvider } from "next-themes";
-import Head from "next/head";
-
-import siteMetadata from "@/data/siteMetadata";
-import Analytics from "@/components/analytics";
-import LayoutWrapper from "@/components/LayoutWrapper";
 import { ClientReload } from "@/components/ClientReload";
+import "@/css/global.scss";
+import "@/css/prism.scss";
+import "@/css/tailwind.scss";
+import { theme } from "@/data/siteMetadata";
+import { AnimatePresence } from "framer-motion";
+// import { ThemeProvider } from "next-themes";
+// import { ThemeProvider } from "next-themes";
+import Head from "next/head";
+import ThemeProvider from "store/ThemeContext";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isSocket = process.env.SOCKET;
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-      <Head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-      </Head>
-      {isDevelopment && isSocket && <ClientReload />}
-      {/* <Analytics /> */}
-      <LayoutWrapper>
-        <Component {...pageProps} />
-      </LayoutWrapper>
-    </ThemeProvider>
+    <>
+      {/* <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}> */}
+
+      <ThemeProvider>
+        <Head>
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+        </Head>
+        {isDevelopment && isSocket && <ClientReload />}
+        {/* <Analytics /> */}
+        <AnimatePresence
+          exitBeforeEnter
+          initial={true}
+          onExitComplete={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          {/* <LayoutWrapper> */}
+          <Component {...pageProps} key={router.pathname} />
+          {/* </LayoutWrapper> */}
+        </AnimatePresence>
+        {/* </ThemeProvider> */}
+      </ThemeProvider>
+    </>
   );
 }
