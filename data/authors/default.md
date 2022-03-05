@@ -10,7 +10,6 @@ github: https://github.com
 tags: ["markdown", "code", "features"]
 ---
 
-<!-- @format -->
 
 Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
 
