@@ -6,13 +6,16 @@ import "@/css/prism.scss";
 import "@/css/tailwind.scss";
 import { theme } from "@/data/siteMetadata";
 import { AnimatePresence } from "framer-motion";
-// import { ThemeProvider } from "next-themes";
-// import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import ThemeProvider from "store/ThemeContext";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isSocket = process.env.SOCKET;
+
+// FONT AWESOME CONFIG
+// import "@fortawesome/fontawesome-svg-core/styles.css";
+// import { config } from "@fortawesome/fontawesome-svg-core";
+// config.autoAddCss = false;
 
 export default function App({ Component, pageProps, router }) {
   return (
