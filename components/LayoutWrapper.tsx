@@ -27,11 +27,11 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <SectionContainer>
-      <div className="flex flex-col justify-between h-screen ">
-        <header className="flex items-center justify-between py-10 ">
+      <div className="flex flex-col justify-between h-screen  ">
+        <header className="flex items-center justify-between py-10">
           <div>
             <Link href="/" aria-label="Naim portfolio">
-              <div className="flex items-center justify-between  ">
+              <div className="flex items-center justify-between  text-accent font-semibold text-2xl  ">
                 {`~${router.asPath}`}{" "}
                 <Typewriter
                   options={{
@@ -54,13 +54,13 @@ const LayoutWrapper = ({ children }) => {
             </Link>
           </div>
           <div className="flex items-center text-base leading-5 ">
-            <div className="hidden sm:block  mx-5">
+            <div className="hidden sm:block  mx-5 ">
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
                   // className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
-                  className="p-1 font-medium  sm:p-4"
+                  className="p-1 font-medium text-neutral text-opacity-90   sm:p-4"
                 >
                   {link.title}
                 </Link>

@@ -12,4 +12,19 @@
   .bd-blue {
     border: 1px solid blue;
   }
+
+  // for toggle check box displaying unwanted white image remving it
+  [type="checkbox"]:checked {
+    background-image: none !important;
+  }
+
+  .toggle-checkbox:checked {
+    @apply right-0 border-green-400;
+    right: 0;
+    // border-color: #68d391;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply bg-gray-300;
+    // background-color: #68d391;
+  }
 }

@@ -21,10 +21,10 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     <>
       <div className="divide-y">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-300  sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          <h1 className="text-3xl text-primary  text-opacity-70 font-extrabold leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
             {title}
           </h1>
-          <div className="relative max-w-lg">
+          <div className="relative max-w-lg mx-auto">
             <input
               aria-label="Search articles"
               type="text"
@@ -54,27 +54,29 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
             const { slug, date, title, summary, tags } = frontMatter;
             return (
               <li key={slug} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
-                  <dl>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{formatDate(date)}</time>
-                    </dd>
-                  </dl>
-                  <div className="space-y-3 xl:col-span-3">
+                <article className="  mx-auto bd-red- border-y-2  w-2/3">
+                  <div className="space-y-3 xl:col-span-3  p-2 ">
                     <div>
-                      <h3 className="text-2xl font-bold leading-8 tracking-tight">
+                      <h3 className="text-2xl text-primary font-bold leading-8 tracking-tight">
                         <Link href={`/blog/${slug}`} className="">
                           {title}
                         </Link>
                       </h3>
-                      <div className="flex flex-wrap">
+
+                      <div className="flex flex-wrap text-secondary">
                         {tags.map((tag) => (
                           <Tag key={tag} text={tag} />
                         ))}
                       </div>
+
+                      <dl>
+                        <dt className="sr-only">Published on</dt>
+                        <dd className="leading-4 opacity-50 text-sm font-medium">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </dd>
+                      </dl>
                     </div>
-                    <div className="prose  max-w-none ">{summary}</div>
+                    <div className="prose  max-w-none opacity-80 ">{summary}</div>
                   </div>
                 </article>
               </li>
