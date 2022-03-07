@@ -22,12 +22,7 @@ const MobileNav = () => {
   return (
     <div className="sm:hidden ">
       <button type="button" className="w-8 h-8 py-1 ml-1 mr-1 rounded" aria-label="Toggle Menu" onClick={onToggleNav}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="text-gray-900 dark:text-gray-100"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="text-neutral">
           {navShow ? (
             <path
               fillRule="evenodd"

@@ -42,7 +42,7 @@ export default function Project() {
       <LayoutWrapper>
         {/* <Img src={`/static/images/projects/project_1-${theme}.png`} width="900" height="800" /> */}
 
-        <div className="flex flex-col items-center bg-[url('/static/images/background.svg')]">
+        <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}>
           <div className="self-center ">
             {/* <Img src={`/static/images/projects/project_1-${theme}.png`} width={900} height={530} /> */}
             <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
