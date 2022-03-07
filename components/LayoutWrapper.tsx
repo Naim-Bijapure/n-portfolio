@@ -31,7 +31,7 @@ const LayoutWrapper = ({ children }) => {
         <header className="flex items-center justify-between py-10">
           <div>
             <Link href="/" aria-label="Naim portfolio">
-              <div className="flex items-center justify-between  text-accent font-semibold text-2xl  ">
+              <div className="flex items-center justify-between  text-accent font-semibold text-sm sm:text-xl">
                 {`~${router.asPath}`}{" "}
                 <Typewriter
                   options={{
@@ -60,7 +60,7 @@ const LayoutWrapper = ({ children }) => {
                   key={link.title}
                   href={link.href}
                   // className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
-                  className="p-1 font-medium text-neutral text-opacity-90   sm:p-4"
+                  className="p-1 font-medium text-neutral text-opacity-90   sm:p-4 hover:text-primary"
                 >
                   {link.title}
                 </Link>
