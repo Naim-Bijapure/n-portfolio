@@ -21,7 +21,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     <>
       <div className="divide-y">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl text-primary  text-opacity-70 font-extrabold font-['Nunito'] leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
+          <h1 className="text-3xl text-primary  text-opacity-70 font-extrabold n-heading-font leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
             {title}
           </h1>
           <div className="relative max-w-lg mx-auto">
@@ -58,7 +58,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                   <div className="space-y-3 xl:col-span-3  p-2 ">
                     <div>
                       <h3 className="text-2xl text-primary font-bold leading-8 tracking-tight ">
-                        <Link href={`/blog/${slug}`} className="font-['Nunito']">
+                        <Link href={`/blog/${slug}`} className="n-heading-font">
                           {title}
                         </Link>
                       </h3>

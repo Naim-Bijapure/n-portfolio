@@ -49,7 +49,7 @@ export default function Projects() {
 
         <div>
           <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-            <h1 className="text-3xl font-['Nunito'] text-primary text-opacity-70 font-extrabold leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+            <h1 className="text-3xl n-heading-font text-primary text-opacity-70 font-extrabold leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
               Projects
             </h1>
 
