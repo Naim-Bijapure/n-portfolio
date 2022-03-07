@@ -31,7 +31,7 @@ const LayoutWrapper = ({ children }) => {
         <header className="flex items-center justify-between py-10">
           <div>
             <Link href="/" aria-label="Naim portfolio">
-              <div className="flex items-center justify-between  text-accent font-semibold text-2xl  ">
+              <div className="flex items-center justify-between  text-accent font-semibold text-sm">
                 {`~${router.asPath}`}{" "}
                 <Typewriter
                   options={{
