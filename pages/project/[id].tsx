@@ -53,24 +53,24 @@ export default function Project() {
               code
             </button>
           </div>
-          <div className="m-5 text-primary text-2xl font-bold ">{currentProject.tagLine}</div>
+          <div className="m-5 text-primary text-2xl font-bold n-heading-font ">{currentProject.tagLine}</div>
           <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-lg">{currentProject.title}</div>
+            <div className="text-secondary font-semibold text-xl n-heading-font">{currentProject.title}</div>
             <div className="">{currentProject.description}</div>
           </div>
 
           <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-lg">Work</div>
+            <div className="text-secondary font-semibold text-xl n-heading-font">Work</div>
             <div className="">{currentProject.work}</div>
           </div>
 
           <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-lg">Tech</div>
+            <div className="text-secondary font-semibold text-xl n-heading-font">Tech</div>
             <div className="">{currentProject.tech}</div>
           </div>
 
           <div className="m-5 prose text-center">
-            <div className="text-secondary italic">Application demo</div>
+            <div className="text-neutral text-opacity-60 italic">Application demo</div>
 
             <div className="">
               <Img src={`/static/images/projects/N.gif`} width={900} height={530} />
