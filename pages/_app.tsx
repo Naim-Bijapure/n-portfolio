@@ -4,6 +4,8 @@ import { ClientReload } from "@/components/ClientReload";
 import "@/css/global.scss";
 import "@/css/prism.scss";
 import "@/css/tailwind.scss";
+import "keen-slider/keen-slider.min.css";
+
 import { theme } from "@/data/siteMetadata";
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";

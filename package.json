@@ -27,6 +27,7 @@
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.1",
+    "keen-slider": "^6.6.3",
     "mdx-bundler": "^8.0.1",
     "next": "^12.0.8",
     "next-themes": "^0.0.15",
