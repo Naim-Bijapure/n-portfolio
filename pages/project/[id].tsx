@@ -9,6 +9,10 @@ import { ThemeContext } from "store/ThemeContext";
 // import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import projectsData from "../../data/projectsData";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // export async function getStaticPaths() {
 //   return {
@@ -28,49 +32,17 @@ import projectsData from "../../data/projectsData";
 
 export default function Project() {
   const { theme } = useContext(ThemeContext);
-  let router: NextRouter = useRouter();
 
-  const [refCallback, slider, sliderNode] = useKeenSlider(
-    {
-      rtl: false,
-      slideChanged() {
-        console.log("slide changed");
-      },
-      loop: true,
-      renderMode: "performance",
-      drag: true,
-    },
-    [
-      (slider) => {
-        let timeout: ReturnType<typeof setTimeout>;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 1000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ],
-  );
+  let router: NextRouter = useRouter();
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
   let projectName = (router?.query?.id as any)?.split("-").join(" ");
   let currentProject = projectsData.find((obj) => obj.title === projectName);
@@ -84,24 +56,21 @@ export default function Project() {
       <LayoutWrapper>
         {/* <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}> */}
 
-        <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${"light"}.svg')]`}>
-          <div className="relative  w-full">
-            {/* <Img src={`/static/images/projects/project_1-${theme}.png`} width={900} height={530} /> */}
-            {/* <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} /> */}
-
-            <div ref={refCallback} className="keen-slider  text-center ">
-              <div className="keen-slider__slide ">
+        <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}>
+          <div className="w-full text-center">
+            <Slider {...settings} className="">
+              <div>
                 <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
               </div>
-              <div className="keen-slider__slide">
-                <Img src={`${currentProject.mainImg}-${"dark"}.png`} width={900} height={530} />
+              <div>
+                <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
               </div>
-              <div className="keen-slider__slide">
-                <Img src={`${currentProject.mainImg}-${"dark"}.png`} width={900} height={530} />
+              <div>
+                <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
               </div>
-            </div>
+            </Slider>
           </div>
-          <div className="m-5">
+          <div className="my-7">
             <button className="mx-2 btn btn-outline btn-primary">view</button>
             <button className="mx-2 btn btn-outline btn-primary " disabled={!currentProject.sourceCode as boolean}>
               code
@@ -126,8 +95,18 @@ export default function Project() {
           <div className="m-5 prose text-center">
             <div className="text-neutral text-opacity-60 italic">Application demo</div>
 
-            <div className="">
-              <Img src={`/static/images/projects/N.gif`} width={900} height={530} />
+            <div className="bd-red">
+              <Img
+                onLoadingComplete={() => {
+                  console.log("onLoadedData: ");
+                }}
+                placeholder="blur"
+                blurDataURL={`${currentProject.mainImg}-${theme}.png`}
+                src={`/static/images/projects/N.gif`}
+                width={900}
+                height={530}
+                priority
+              />
             </div>
           </div>
         </div>
