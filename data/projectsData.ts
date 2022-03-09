@@ -28,7 +28,7 @@ type projectType = {
   work: string;
   tech: string;
   techList: string[];
-  mainImg: string;
+  images: string[];
   view: string | boolean;
   sourceCode: string | boolean;
   demo: string | boolean;
@@ -50,7 +50,7 @@ const projectsData: projectType[] = [
     and more. Google has many features to help you find exactly what you're looking
     for.`,
     techList: ["reactjs", "redux", "nodejs"],
-    mainImg: "/static/images/projects/project_1",
+    images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
     sourceCode: "/static/images/google.png",
     demo: "/static/images/projects/N.gif",
@@ -81,7 +81,7 @@ const projectsData: projectType[] = [
     and more. Google has many features to help you find exactly what you're looking
     for.`,
     techList: ["reactjs", "redux", "nodejs"],
-    mainImg: "/static/images/google.png",
+    images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
     sourceCode: "/static/images/google.png",
     demo: "/static/images/projects/N.gif",
@@ -102,7 +102,7 @@ const projectsData: projectType[] = [
     and more. Google has many features to help you find exactly what you're looking
     for.`,
     techList: ["reactjs", "redux", "nodejs"],
-    mainImg: "/static/images/google.png",
+    images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
     sourceCode: "/static/images/google.png",
     demo: "/static/images/projects/N.gif",
@@ -122,7 +122,7 @@ const projectsData: projectType[] = [
     and more. Google has many features to help you find exactly what you're looking
     for.`,
     techList: ["reactjs", "redux", "nodejs"],
-    mainImg: "/static/images/google.png",
+    images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
     sourceCode: "/static/images/google.png",
     demo: "/static/images/projects/N.gif",

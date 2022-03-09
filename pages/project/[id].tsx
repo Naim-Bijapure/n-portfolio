@@ -59,15 +59,13 @@ export default function Project() {
         <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}>
           <div className="w-full text-center">
             <Slider {...settings} className="">
-              <div>
-                <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
-              </div>
-              <div>
-                <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
-              </div>
-              <div>
-                <Img src={`${currentProject.mainImg}-${theme}.png`} width={900} height={530} />
-              </div>
+              {currentProject.images.map((img, index) => {
+                return (
+                  <div key={index}>
+                    <Img src={`${img}-${theme}.png`} width={900} height={530} />
+                  </div>
+                );
+              })}
             </Slider>
           </div>
           <div className="my-7">
@@ -95,13 +93,10 @@ export default function Project() {
           <div className="m-5 prose text-center">
             <div className="text-neutral text-opacity-60 italic">Application demo</div>
 
-            <div className="bd-red">
+            <div className="">
               <Img
-                onLoadingComplete={() => {
-                  console.log("onLoadedData: ");
-                }}
                 placeholder="blur"
-                blurDataURL={`${currentProject.mainImg}-${theme}.png`}
+                blurDataURL={`${currentProject.images[0]}-${theme}.png`}
                 src={`/static/images/projects/N.gif`}
                 width={900}
                 height={530}
