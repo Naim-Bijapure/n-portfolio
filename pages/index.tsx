@@ -19,7 +19,7 @@ const Home = () => {
     <LayoutWrapper>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      {/* <input type="checkbox" className="toggle focus:ring-0 focus:ring-offset-0 focus:outline-none" /> */}
+      {/* theme checkers */}
       {/* <button className="btn">Button</button>
       <button className="btn btn-primary">Button</button>
       <button className="btn btn-secondary">Button</button>
@@ -29,7 +29,7 @@ const Home = () => {
 
       {/* main home */}
       <div className="prose-2xl w-full  bg-cover bg-[url('/static/images/background-mb-3.svg')] lg:prose-h1:h-32	lg:h-max  lg:bg-cover lg:bg-[url('/static/images/background12.svg')]  ">
-        <h3 className="text-2xl font-bold text-primary text-opacity-70 md:text-4xl n-heading-font ">Hi, I'm Naim</h3>
+        <h3 className="text-2xl font-bold text-neutral text-opacity-80 md:text-4xl n-heading-font ">Hi, I'm Naim</h3>
         <h1 className=" font-bold text-neutral  text-opacity-80  n-heading-font    text-4xl  xl:text-8xl sm:text-7xl">
           I build <span className="text-secondary opacity-100">things</span> with{" "}
           <span className="text-primary">code</span> &<span></span> <span className="text-brownn">coffee</span>
