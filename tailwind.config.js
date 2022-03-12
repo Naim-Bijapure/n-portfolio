@@ -179,23 +179,56 @@ module.exports = {
       {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],
-          "primary": "#855CFF",
-          "primary-content": "#FFFFFF",
-          "secondary": "#FF00FF",
-          "secondary-content": "#FFFFFF",
-          // "accent": "#9ca3af",
-          "neutral": "#140052",
-          "info": "#3ABFF8",
-          "success": "#36D399",
-          "warning": "#FBBD23",
-          "error": "#F87272",
-          // "primary": "#343232",
-          // "secondary": "#343232",
-          // "accent": "#343232",
-          // "base-100": "#000000",
-          // "base-200": "#0D0D0D",
-          // "base-300": "#1A1919",
-          // "neutral": "#272626",
+          // old theme
+          // "primary": "#855CFF",
+          // "primary-content": "#FFFFFF",
+          // "secondary": "#FF00FF",
+          // "secondary-content": "#FFFFFF",
+          // "neutral": "#140052",
+          // "info": "#3ABFF8",
+          // "success": "#36D399",
+          // "warning": "#FBBD23",
+          // "error": "#F87272",
+
+          // good 1
+          // primary: "#70D6FF",
+          // secondary: "#FF70A6",
+
+          // good 2
+          // primary: "#FF70A6",
+          // secondary: "#70D6FF",
+
+          // good 3 professional blue
+          // primary: "#5E60CE",
+          // secondary: "#48BFE3",
+          // accent: "#56CFE1",
+
+          // good 4 liked awesome purpule feel
+          primary: "#9B5DE5",
+          secondary: "#F15BB5",
+          accent: "#00BBF9",
+
+          // good 5 dark purple feel a deep dark
+          // primary: "#7209B7",
+          // secondary: "#F72585",
+          // accent: "#4361EE",
+
+          // good 6 ok not that bad
+          // primary: "#ED5EDD",
+          // secondary: "#8BDB81",
+          // accent: "#8BDB81",
+          // neutral: "#6A5495",
+
+          // good 7
+          // primary: "#4D77FF",
+          // secondary: "#56BBF1",
+          // accent: "#F2FA5A",
+          // neutral: "#F2C9E1",
+
+          // primary: "#5E60CE",
+          // secondary: "#48BFE3",
+          // accent: "#56CFE1",
+          // neutral: "#3A0CA3",
           // "neutral-focus": "#343232",
           // "info": "#0000ff",
           // "success": "#008000",

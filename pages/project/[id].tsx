@@ -7,7 +7,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "store/ThemeContext";
 // import { useCycle } from "framer-motion";
 // import { motion } from "framer-motion";
-import { useKeenSlider } from "keen-slider/react";
+// import { useKeenSlider } from "keen-slider/react";
 import projectsData from "../../data/projectsData";
 import Slider from "react-slick";
 

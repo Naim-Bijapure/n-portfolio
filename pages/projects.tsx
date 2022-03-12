@@ -53,9 +53,11 @@ export default function Projects() {
               Projects
             </h1>
 
-            <div className="tabs">
+            <div className="tabs ">
               <a
-                className={`tab tab-bordered  ${selectedProjects === "work" ? "tab-active opacity-80  font-bold" : ""}`}
+                className={`tab tab-bordered   ${
+                  selectedProjects === "work" ? "tab-active text-primary opacity-90 font-bold " : ""
+                }`}
                 onClick={() => {
                   changeProjects("work");
                 }}
@@ -63,7 +65,9 @@ export default function Projects() {
                 Work Projects
               </a>
               <a
-                className={`tab tab-bordered  ${selectedProjects === "side" ? "tab-active opacity-80 font-bold" : ""}`}
+                className={`tab tab-bordered  ${
+                  selectedProjects === "side" ? "tab-active text-primary opacity-90 font-bold" : ""
+                }`}
                 onClick={() => {
                   changeProjects("side");
                 }}
