@@ -31,20 +31,20 @@ const Home = () => {
           I build <span className="text-secondary- text-opacity-70- ">things</span> with{" "}
           <span>
             <span className="relative text-base-100 text-opacity-70-">
-              <RoughNotation type="highlight" color="#00BBF9" animationDelay={200} show={true}>
+              <RoughNotation type="highlight" color="#00BBF9" animationDelay={500} show={true}>
                 code
               </RoughNotation>{" "}
             </span>
           </span>
           &{" "}
           <span className="hidden lg:inline-block">
-            <RoughNotation animationDelay={300} padding={-25} strokeWidth={-9} type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={500} padding={-25} strokeWidth={-9} type="underline" color="red" show={true}>
               <span className="text-brown-">coffee</span>
             </RoughNotation>
           </span>
           {/* to display on mobile */}
           <span className="inline-block lg:hidden">
-            <RoughNotation animationDelay={300} padding={0} type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={500} padding={0} type="underline" color="red" show={true}>
               <span className="text-brown-">coffee</span>
             </RoughNotation>
           </span>
@@ -52,7 +52,7 @@ const Home = () => {
         <div className="text-xl font-medium text-neutral text-opacity-60   sm:w-[60%]  ">
           I'm a{" "}
           <span className="relative">
-            <RoughNotation animationDelay={300} type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={500} type="underline" color="red" show={true}>
               self taught full stack
             </RoughNotation>{" "}
           </span>
