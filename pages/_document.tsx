@@ -24,6 +24,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           /> */}
           <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@900&display=swap" rel="stylesheet" />
 
           <link
             rel="stylesheet"

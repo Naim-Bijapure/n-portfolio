@@ -30,7 +30,7 @@ module.exports = {
         // primary: colors.teal,
         // gray: colors.neutral,
         // primary: colors.blue,
-        brown: "#ad5c5c",
+        brown: "#CEAB93",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -226,7 +226,7 @@ module.exports = {
           // neutral: "#F2C9E1",
 
           // primary: "#5E60CE",
-          // secondary: "#48BFE3",
+          // secondary: "#CC9544",
           // accent: "#56CFE1",
           // neutral: "#3A0CA3",
           // "neutral-focus": "#343232",

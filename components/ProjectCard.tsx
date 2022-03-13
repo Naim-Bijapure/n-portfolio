@@ -14,7 +14,7 @@ const ProjectCard = ({ title, description }: { title: string; description: strin
 
         <div className="card-body  | md:w-[75%]">
           {/* <h2 className="card-title text-2xl  ">Smart manufacturing dashboard</h2> */}
-          <h2 className="card-title text-neutral text-opacity-80">{title}</h2>
+          <h2 className="card-title text-primary text-opacity-80">{title}</h2>
           <p className="font-medium text-neutral text-opacity-60">{description.slice(0, 250)} ...</p>
           <div className="card-actions justify-end">
             <Link passHref href={`/project/${title.split(" ").join("-")}`}>
