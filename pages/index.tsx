@@ -25,9 +25,9 @@ const Home = () => {
       <div className="relative prose-2xl w-full  bg-cover bg-[url('/static/images/background-mb-1.svg')] lg:prose-h1:h-40	lg:h-max  lg:bg-cover lg:bg-[url('/static/images/background13.svg')]  ">
         {/* <Hero welcome="cool man" /> */}
         <h3 className="text-2xl font-bold text-neutral text-opacity-90 md:text-4xl n-heading-font ">
-          Hi, I'm <span className="text-primary text-opacity-100">Naim</span>
+          Hi, I'm <span className="text-primary text-opacity-90">Naim</span>
         </h3>
-        <h1 className="relative  font-bold text-neutral  text-opacity-100  n-heading-font text-4xl  lg:text-8xl sm:text-7xl">
+        <h1 className="relative  font-bold text-neutral  text-opacity-95  n-heading-font text-4xl  lg:text-8xl sm:text-7xl">
           I build <span className="text-secondary- text-opacity-70- ">things</span> with{" "}
           <span>
             <RoughNotation type="highlight" color="#00BBF9" show={true}>
