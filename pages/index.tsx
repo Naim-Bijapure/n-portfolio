@@ -27,22 +27,24 @@ const Home = () => {
         <h3 className="text-2xl font-bold text-neutral text-opacity-90 md:text-4xl n-heading-font ">
           Hi, I'm <span className="text-primary text-opacity-90">Naim</span>
         </h3>
-        <h1 className="relative  font-bold text-neutral  text-opacity-95  n-heading-font text-4xl  lg:text-8xl sm:text-7xl">
+        <h1 className="font-bold text-neutral  text-opacity-95  n-heading-font text-4xl  lg:text-8xl sm:text-7xl">
           I build <span className="text-secondary- text-opacity-70- ">things</span> with{" "}
           <span>
-            <RoughNotation type="highlight" color="#00BBF9" show={true}>
-              <span className="text-base-100 text-opacity-70-">code</span>
-            </RoughNotation>{" "}
+            <span className="relative text-base-100 text-opacity-70-">
+              <RoughNotation type="highlight" color="#00BBF9" animationDelay={200} show={true}>
+                code
+              </RoughNotation>{" "}
+            </span>
           </span>
           &{" "}
           <span className="hidden lg:inline-block">
-            <RoughNotation padding={-25} strokeWidth={-9} type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={300} padding={-25} strokeWidth={-9} type="underline" color="red" show={true}>
               <span className="text-brown-">coffee</span>
             </RoughNotation>
           </span>
           {/* to display on mobile */}
           <span className="inline-block lg:hidden">
-            <RoughNotation padding={0} type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={300} padding={0} type="underline" color="red" show={true}>
               <span className="text-brown-">coffee</span>
             </RoughNotation>
           </span>
@@ -50,7 +52,7 @@ const Home = () => {
         <div className="text-xl font-medium text-neutral text-opacity-60   sm:w-[60%]  ">
           I'm a{" "}
           <span className="relative">
-            <RoughNotation type="underline" color="red" show={true}>
+            <RoughNotation animationDelay={300} type="underline" color="red" show={true}>
               self taught full stack
             </RoughNotation>{" "}
           </span>
