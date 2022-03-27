@@ -69,7 +69,11 @@ export default function Project() {
             </Slider>
           </div>
           <div className="my-7">
-            <button className="mx-2 btn btn-outline btn-primary">view</button>
+            <a target={"_blank"} href={currentProject.view as string} rel="noreferrer">
+              <button className="mx-2 btn btn-outline btn-primary" disabled={!currentProject.view as boolean}>
+                view
+              </button>
+            </a>
             <button className="mx-2 btn btn-outline btn-primary " disabled={!currentProject.sourceCode as boolean}>
               code
             </button>
@@ -77,17 +81,42 @@ export default function Project() {
           <div className="m-5 text-primary text-2xl font-bold n-heading-font ">{currentProject.tagLine}</div>
           <div className="m-5 prose">
             <div className="text-secondary font-semibold text-xl n-heading-font">{currentProject.title}</div>
-            <div className="">{currentProject.description}</div>
+            <div className="">
+              {currentProject.description.split("//").map((line, index) => (
+                <div key={index} className="my-3">
+                  {line}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-xl n-heading-font">Work</div>
-            <div className="">{currentProject.work}</div>
+            <div className="text-secondary font-semibold text-xl n-heading-font">Work & Challanges</div>
+            <div className="">
+              {currentProject.work.split("//").map((line, index) => (
+                <div key={index} className="my-3">
+                  {line}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-xl n-heading-font">Tech</div>
-            <div className="">{currentProject.tech}</div>
+            <div className="text-secondary font-semibold text-xl n-heading-font">Technical Details</div>
+            {/* <div className="">{currentProject.tech}</div> */}
+            {currentProject.tech["front"] !== false && (
+              <div className="prose m-2">
+                <div className="text-primary n-heading-font">front-end</div>
+                <div className="">{currentProject.tech["front"]}</div>
+              </div>
+            )}
+
+            {currentProject.tech["back"] !== false && (
+              <div className="prose m-2 my-4">
+                <div className="text-primary n-heading-font">back-end</div>
+                <div className="">{currentProject.tech["back"]}</div>
+              </div>
+            )}
           </div>
 
           <div className="m-5 prose text-center">

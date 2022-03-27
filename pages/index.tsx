@@ -9,57 +9,72 @@ import { useIsPresent } from "framer-motion";
 // import { faCoffee, faUser } from "@fortawesome/free-solid-svg-icons";
 // import { faSuperpowers } from "@fortawesome/free-brands-svg-icons";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import moment from "moment";
+
+import Img from "next/image";
 
 import LayoutWrapper from "../components/LayoutWrapper";
 import projectsData from "../data/projectsData";
 import Hero from "../components/Hero";
+import SocialIcon from "@/components/social-icons";
 
 const Home = () => {
   const isPresent = useIsPresent();
+
+  let experienceYear = Math.round(moment().diff(moment([2019, 5]), "year", true));
 
   return (
     <LayoutWrapper>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
       {/* main home */}
-      <div className="relative prose-2xl w-full  bg-cover bg-[url('/static/images/background-mb-1.svg')] lg:prose-h1:h-40	lg:h-max  lg:bg-cover lg:bg-[url('/static/images/background13.svg')]  ">
+
+      <div className="relative -prose-2xl w-full    bg-cover -bg-[url('/static/images/background-mb.svg')] 	lg:h-max  lg:bg-cover lg:-bg-[url('/static/images/background.svg')]  ">
         {/* <Hero welcome="cool man" /> */}
-        <h3 className="text-2xl font-bold text-neutral text-opacity-90 md:text-4xl n-heading-font ">
-          Hi, I'm <span className="text-primary text-opacity-90">Naim</span>
-        </h3>
-        <h1 className="font-bold text-neutral  text-opacity-95  n-heading-font text-4xl  lg:text-8xl sm:text-7xl">
-          I build <span className="text-secondary- text-opacity-70- ">things</span> with{" "}
-          <span>
-            <span className="relative text-base-100 text-opacity-70-">
-              <RoughNotation type="highlight" color="#00BBF9" animationDelay={500} show={true}>
-                code
-              </RoughNotation>{" "}
-            </span>
-          </span>
-          &{" "}
-          <span className="hidden lg:inline-block">
-            <RoughNotation animationDelay={500} padding={-25} strokeWidth={-9} type="underline" color="red" show={true}>
-              <span className="text-brown-">coffee</span>
-            </RoughNotation>
-          </span>
-          {/* to display on mobile */}
-          <span className="inline-block lg:hidden">
-            <RoughNotation animationDelay={500} padding={0} type="underline" color="red" show={true}>
-              <span className="text-brown-">coffee</span>
-            </RoughNotation>
-          </span>
-        </h1>
-        <div className="text-xl font-medium text-neutral text-opacity-60   sm:w-[60%]  ">
-          I'm a{" "}
-          <span className="relative">
-            <RoughNotation animationDelay={500} type="underline" color="red" show={true}>
-              self taught full stack
-            </RoughNotation>{" "}
-          </span>
-          web developer based in pune, India. Passionate about building exceptional, high-quality web and mobile apps.
+
+        <div className="flex items-center">
+          <div className="avatar">
+            <div className="w-28   rounded-full">
+              {/* <Img src="https://api.lorem.space/image/face?hash=92310" width={400} height={500} /> */}
+              <Img src="/static/images/N.jpg" width={400} height={500} />
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold text-neutral text-opacity-90 md:text-4xl n-heading-font mx-5 ">
+            Hi, I'm <span className="text-primary">Naim</span> <span className="wave">👋</span>
+          </h3>
         </div>
 
-        <div className="my-8">
+        <h3 className="font-bold text-neutral    n-heading-font text-4xl  lg:text-7xl mt-5 ">
+          A full stack web developer
+        </h3>
+        <div className="text-xl font-medium text-neutral -text-opacity-95 w-[90%]   lg:w-full mt-10  ">
+          <div>
+            <div className="my-1">I'm a javascript enthusiast with {experienceYear}yrs of experience in</div>
+            <div className="my-1">
+              <span className="text-accent">Reactjs,Vuejs,Nodejs,Linux,AWS, Devops tools</span> and many more.
+            </div>
+          </div>
+          <div className="mt-4">
+            Currently building and leading awesome products at
+            <div className="text-primary underline">
+              <a href={"https://naim-web.dev"} target="_blank" rel="noreferrer">
+                @vinnovate technologies
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-14">
+          <div className="flex mb-3 space-x-4">
+            <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
+            <SocialIcon kind="github" href={siteMetadata.github} size={6} />
+            <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
+            {/* <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} /> */}
+            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
+            <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
+          </div>
+        </div>
+
+        <div className="my-5">
           <Link href={"/about"}>
             <button className="btn btn-primary">About me</button>
           </Link>
@@ -69,7 +84,7 @@ const Home = () => {
       {/* projects header */}
       <div className="my-10 ">
         <div className="flex w-full justify-center items-center ">
-          <div className="w-[70%] text-neutral  text-opacity-70 font-bold text-2xl lg:text-4xl lg:w-1/2">
+          <div className="w-[70%] text-neutral  text-opacity-90 font-bold text-2xl lg:text-4xl lg:w-1/2">
             Some things i built
           </div>
           <div className="w-[30%]  divider lg:w-full" />
@@ -93,6 +108,13 @@ const Home = () => {
         <Link href={"/projects"}>
           <button className="btn btn-primary">All Projects</button>
         </Link>
+      </div>
+
+      <div className="my-10 ">
+        <div className="flex w-full justify-center items-center ">
+          <div className="w-[70%] text-neutral  text-opacity-90 font-bold text-2xl lg:text-4xl lg:w-1/2">Articles</div>
+          <div className="w-[30%]  divider lg:w-full" />
+        </div>
       </div>
     </LayoutWrapper>
   );

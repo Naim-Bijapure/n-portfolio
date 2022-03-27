@@ -8,7 +8,8 @@ import "@/css/tailwind.scss";
 import { theme } from "@/data/siteMetadata";
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
-import ThemeProvider from "store/ThemeContext";
+import { useContext } from "react";
+import ThemeProvider, { ThemeContext } from "store/ThemeContext";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isSocket = process.env.SOCKET;
@@ -36,9 +37,9 @@ export default function App({ Component, pageProps, router }) {
             window.scrollTo(0, 0);
           }}
         >
-          {/* <LayoutWrapper> */}
-          <Component {...pageProps} key={router.pathname} />
-          {/* </LayoutWrapper> */}
+          <div>
+            <Component {...pageProps} key={router.pathname} />
+          </div>
         </AnimatePresence>
         {/* </ThemeProvider> */}
       </ThemeProvider>
