@@ -26,7 +26,7 @@ type projectType = {
   type: string;
   description: string;
   work: string;
-  tech: { front: string | boolean; back: string | boolean };
+  tech: { front: string[]; back: string[] };
   techList: string[];
   images: string[];
   view: string | boolean;
@@ -67,13 +67,9 @@ const projectsData: projectType[] = [
     // and more. Google has many features to help you find exactly what you're looking
     // for.`,
     tech: {
-      front: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+      front: ["Reactjs", "mobx"],
 
-      back: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+      back: ["Nodejs", "Python"],
     },
     techList: ["reactjs", "redux", "nodejs"],
     images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
@@ -103,9 +99,11 @@ const projectsData: projectType[] = [
     for.  
     
     `,
-    tech: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+    tech: {
+      front: ["Reactjs", "mobx"],
+
+      back: ["Nodejs", "Python"],
+    },
     techList: ["reactjs", "redux", "nodejs"],
     images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
@@ -124,9 +122,11 @@ const projectsData: projectType[] = [
     work: `What if you could look up any information in the world? Webpages, images, videos
     and more. Google has many features to help you find exactly what you're looking
     for.`,
-    tech: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+    tech: {
+      front: ["Reactjs", "mobx"],
+
+      back: ["Nodejs", "Python"],
+    },
     techList: ["reactjs", "redux", "nodejs"],
     images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",
@@ -144,9 +144,11 @@ const projectsData: projectType[] = [
     work: `What if you could look up any information in the world? Webpages, images, videos
     and more. Google has many features to help you find exactly what you're looking
     for.`,
-    tech: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+    tech: {
+      front: ["Reactjs", "mobx"],
+
+      back: ["Nodejs", "Python"],
+    },
     techList: ["reactjs", "redux", "nodejs"],
     images: ["/static/images/projects/project_1", "/static/images/projects/project_1"],
     view: "/static/images/google.png",

@@ -57,7 +57,7 @@ const securityHeaders = [
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ["api.lorem.space", "media.giphy.com", "imgur.com"],
+    domains: ["api.lorem.space", "media.giphy.com", "imgur.com", "ipfs.io"],
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "tsx"],
   eslint: {

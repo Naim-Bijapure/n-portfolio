@@ -90,7 +90,7 @@ export default function Project() {
             </div>
           </div>
 
-          <div className="m-5 prose">
+          <div className="m-5 prose ">
             <div className="text-secondary font-semibold text-xl n-heading-font">Work & Challanges</div>
             <div className="">
               {currentProject.work.split("//").map((line, index) => (
@@ -101,22 +101,25 @@ export default function Project() {
             </div>
           </div>
 
-          <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-xl n-heading-font">Technical Details</div>
-            {/* <div className="">{currentProject.tech}</div> */}
-            {currentProject.tech["front"] !== false && (
+          <div className="m-5 prose   w-full">
+            <div className="text-secondary font-semibold text-xl n-heading-font content-start">Technical Details</div>
+            {currentProject.tech["front"].length > 0 && (
               <div className="prose m-2">
-                <div className="text-primary n-heading-font">front-end</div>
-                <div className="">{currentProject.tech["front"]}</div>
+                <div className="text-primary n-heading-font">Front-End</div>
+                {/* <div className="">{currentProject.tech["front"]}</div> */}
+                {currentProject.tech["front"].map((value, index) => (
+                  <div key={index} className="badge badge-primary badge-outline m-1">
+                    {value}
+                  </div>
+                ))}
               </div>
             )}
-
-            {currentProject.tech["back"] !== false && (
+            {/* {currentProject.tech["back"] !== false && (
               <div className="prose m-2 my-4">
                 <div className="text-primary n-heading-font">back-end</div>
                 <div className="">{currentProject.tech["back"]}</div>
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="m-5 prose text-center">
@@ -126,7 +129,8 @@ export default function Project() {
               <Img
                 placeholder="blur"
                 blurDataURL={`${currentProject.images[0]}-${theme}.png`}
-                src={`/static/images/projects/N.gif`}
+                // src={`/static/images/projects/N.gif`}
+                src={`https://ipfs.io/ipfs/bafybeieepwrvigmcn45qdiohmr4xp2fz7jvoqb5xterzhzdxstdglnaspq/demo.gif`}
                 width={900}
                 height={530}
                 priority
