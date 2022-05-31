@@ -65,8 +65,8 @@ export default function Projects() {
                 Work Projects
               </a>
               <a
-                className={`tab tab-bordered  ${
-                  selectedProjects === "side" ? "tab-active text-primary opacity-90 font-bold" : ""
+                className={`tab tab-bordered   ${
+                  selectedProjects === "side" ? " tab-active text-primary opacity-90 font-bold" : ""
                 }`}
                 onClick={() => {
                   changeProjects("side");
@@ -77,7 +77,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-between lg:flex-row">
             {currentProjects.map((obj, index) => {
               return (
                 <motion.div

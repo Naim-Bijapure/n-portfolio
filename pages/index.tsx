@@ -17,25 +17,54 @@ import LayoutWrapper from "../components/LayoutWrapper";
 import projectsData from "../data/projectsData";
 import Hero from "../components/Hero";
 import SocialIcon from "@/components/social-icons";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const isPresent = useIsPresent();
+  const [show, setShow] = useState(false);
 
   let experienceYear = Math.round(moment().diff(moment([2019, 5]), "year", true));
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 500);
+  }, []);
 
   return (
     <LayoutWrapper>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      {/* main home */}
+      <div className="bd--red flex flex-col justify-center items-start absolute top-[40%] left-0 right-0 m-5 lg:left-[15%] lg:top-[30%] ">
+        <div className="text-3xl n-heading-font m-1 text-neutral">
+          Hi, I am Naim <span className="wave">👋</span>
+        </div>
+        <div className="m-1 text-xl text-neutral  ">Software engineer</div>
+        <div className="m-1 text-secondary  italic">
+          <RoughNotation type="box" color="black" show={show}>
+            currently transitioning to web3
+          </RoughNotation>
+        </div>
+        <div className="m-1 mt-2  ">
+          <span>Read more</span>
 
-      <div className="relative -prose-2xl w-full    bg-cover -bg-[url('/static/images/background-mb.svg')] 	lg:h-max  lg:bg-cover lg:-bg-[url('/static/images/background.svg')]  ">
-        {/* <Hero welcome="cool man" /> */}
+          <Link key={"about_me"} href={"/about"}>
+            <span className="mx-2">
+              <RoughNotation type="highlight" color="#c9f3ff" show={show} padding={10}>
+                about me
+              </RoughNotation>
+            </span>
+          </Link>
+        </div>
+      </div>
+      {/* <Hero welcome="cool man" /> */}
+
+      {/* OLD HOME */}
+      {/* main home */}
+      {/* <div className="relative -prose-2xl w-full    bg-cover -bg-[url('/static/images/background-mb.svg')] 	lg:h-max  lg:bg-cover lg:-bg-[url('/static/images/background.svg')]  ">
 
         <div className="flex items-center">
           <div className="avatar">
             <div className="w-28   rounded-full">
-              {/* <Img src="https://api.lorem.space/image/face?hash=92310" width={400} height={500} /> */}
               <Img src="/static/images/N.jpg" width={400} height={500} />
             </div>
           </div>
@@ -68,7 +97,6 @@ const Home = () => {
             <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
             <SocialIcon kind="github" href={siteMetadata.github} size={6} />
             <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
-            {/* <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} /> */}
             <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
             <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
           </div>
@@ -79,21 +107,21 @@ const Home = () => {
             <button className="btn btn-primary">About me</button>
           </Link>
         </div>
-      </div>
+      </div> */}
+
       {/* projects list */}
-      {/* projects header */}
-      <div className="my-10 ">
+      {/* <div className="my-10 ">
         <div className="flex w-full justify-center items-center ">
           <div className="w-[70%] text-neutral  text-opacity-90 font-bold text-2xl lg:text-4xl lg:w-1/2">
             Some things i built
           </div>
           <div className="w-[30%]  divider lg:w-full" />
         </div>
-      </div>
+      </div> */}
 
       {/* project card */}
 
-      <div>
+      {/* <div>
         <div className="flex flex-col">
           {projectsData
             .filter((obj) => obj.type === "work")
@@ -102,9 +130,9 @@ const Home = () => {
               return <ProjectCard key={index} title={obj.title} description={obj.description} />;
             })}
         </div>
-      </div>
+      </div> */}
 
-      <div className="my-5">
+      {/* <div className="my-5">
         <Link href={"/projects"}>
           <button className="btn btn-primary">All Projects</button>
         </Link>
@@ -115,7 +143,7 @@ const Home = () => {
           <div className="w-[70%] text-neutral  text-opacity-90 font-bold text-2xl lg:text-4xl lg:w-1/2">Articles</div>
           <div className="w-[30%]  divider lg:w-full" />
         </div>
-      </div>
+      </div> */}
     </LayoutWrapper>
   );
 };
