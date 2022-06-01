@@ -54,9 +54,36 @@ export default function Project() {
   return (
     <>
       <LayoutWrapper>
-        {/* <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}> */}
+        <div className={`flex flex-col items-start bg-[url('/static/images/bg-project-${theme}.svg')]`}>
+          <div className="">
+            <div className="text-5xl font-bold my-2">vDigi Docr</div>
+            <div className="text-lg my-2 font-thin italic ">a first impression tag line</div>
+            <div className="text-sm my-2 w-[60%] ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id, tempore unde
+              expedita recusandae ut laboriosam repellendus soluta, eaque illum voluptatum eligendi ipsum eum itaque
+              quasi quis animi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id,
+              tempore unde expedita recusandae ut laboriosam repellendus soluta, eaque illum voluptatum eligendi ipsum
+              eum itaque quasi quis animi!
+            </div>
 
-        <div className={`flex flex-col items-center bg-[url('/static/images/bg-project-${theme}.svg')]`}>
+            <div className="text-lg font-bold">Stack</div>
+            <div className="flex ">
+              <div className="badge badge-primary  badge-lg rounded-sm">Reactjs</div>
+              <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Node</div>
+              <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Python</div>
+            </div>
+          </div>
+          <div className="w-full mt-5 grid grid-cols-3 gap-2  grid-flow-row  ">
+            {currentProject.images.map((img, index) => {
+              return (
+                <div key={index} className="">
+                  <Img src={`${img}-${theme}.png`} width={900} height={530} />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* 
           <div className="w-full text-center">
             <Slider {...settings} className="">
               {currentProject.images.map((img, index) => {
@@ -106,7 +133,6 @@ export default function Project() {
             {currentProject.tech["front"].length > 0 && (
               <div className="prose m-2">
                 <div className="text-primary n-heading-font">Front-End</div>
-                {/* <div className="">{currentProject.tech["front"]}</div> */}
                 {currentProject.tech["front"].map((value, index) => (
                   <div key={index} className="badge badge-primary badge-outline m-1">
                     {value}
@@ -114,12 +140,6 @@ export default function Project() {
                 ))}
               </div>
             )}
-            {/* {currentProject.tech["back"] !== false && (
-              <div className="prose m-2 my-4">
-                <div className="text-primary n-heading-font">back-end</div>
-                <div className="">{currentProject.tech["back"]}</div>
-              </div>
-            )} */}
           </div>
 
           <div className="m-5 prose text-center">
@@ -129,14 +149,13 @@ export default function Project() {
               <Img
                 placeholder="blur"
                 blurDataURL={`${currentProject.images[0]}-${theme}.png`}
-                // src={`/static/images/projects/N.gif`}
                 src={`https://ipfs.io/ipfs/bafybeieepwrvigmcn45qdiohmr4xp2fz7jvoqb5xterzhzdxstdglnaspq/demo.gif`}
                 width={900}
                 height={530}
                 priority
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </LayoutWrapper>
     </>

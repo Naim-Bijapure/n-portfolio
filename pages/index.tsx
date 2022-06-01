@@ -35,7 +35,7 @@ const Home = () => {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
       <div className="bd--red flex flex-col justify-center items-start absolute top-[40%] left-0 right-0 m-5 lg:left-[15%] lg:top-[30%] ">
-        <div className="text-3xl n-heading-font m-1 text-neutral">
+        <div className="text-4xl n-heading-font m-1 text-neutral">
           Hi, I am Naim <span className="wave">👋</span>
         </div>
         <div className="m-1 text-xl text-neutral  ">Software engineer</div>
