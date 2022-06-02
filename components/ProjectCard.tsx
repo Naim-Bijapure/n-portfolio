@@ -7,12 +7,7 @@ import { motion } from "framer-motion";
 const ProjectCard = ({ title, description }: { title: string; description: string }) => {
   return (
     <>
-      {/* <div className="m-3 card   bg-base--200  border--2   shadow-sm  | md:w-[100%] md:card-side hover:shadow-md hover:scale-105 transform transition duration-100  "> */}
-      <div className="m-3 card   bg-base--200  border-2   shadow-sm  | p-10 m-5 md:w-[90%] md:card-compact hover:shadow-md hover:scale-105 transform transition duration-100  ">
-        {/* <div className="my-auto p-2 md:p-0   relative text-center  | md:w-[25%] "> */}
-        {/* <div className="my-auto p-2 md:p-0   relative text-center  | md:w-[100%] ">
-          <Img src={`/static/images/projects/project_1-${"light"}.png`} width={300} height={200} />
-        </div> */}
+      <div className="card border-2 shadow-sm  py-5  md:w-[80%] md:card-compact hover:shadow-md hover:scale-105 transform transition duration-100  ">
         <figure>
           <Img src={`/static/images/projects/project_1-${"light"}.png`} width={300} height={200} />
         </figure>

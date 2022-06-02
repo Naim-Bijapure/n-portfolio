@@ -1,4 +1,9 @@
 /** @format */
+
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+
+import "photoswipe/dist/photoswipe.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import ProjectCard from "@/components/ProjectCard";
 import { NextRouter, useRouter } from "next/router";
@@ -8,11 +13,19 @@ import { ThemeContext } from "store/ThemeContext";
 // import { useCycle } from "framer-motion";
 // import { motion } from "framer-motion";
 // import { useKeenSlider } from "keen-slider/react";
-import projectsData from "../../data/projectsData";
-import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink, faCode } from "@fortawesome/free-solid-svg-icons";
+// import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import projectsData from "../../data/projectsData";
+
+// TODO:remove it
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
+import { Gallery, Item } from "react-photoswipe-gallery";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 // export async function getStaticPaths() {
 //   return {
@@ -58,7 +71,7 @@ export default function Project() {
           <div className="">
             <div className="text-5xl font-bold my-2">vDigi Docr</div>
             <div className="text-lg my-2 font-thin italic ">a first impression tag line</div>
-            <div className="text-sm my-2 w-[60%] ">
+            <div className="text-sm my-2 lg:w-[60%] ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id, tempore unde
               expedita recusandae ut laboriosam repellendus soluta, eaque illum voluptatum eligendi ipsum eum itaque
               quasi quis animi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id,
@@ -72,15 +85,33 @@ export default function Project() {
               <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Node</div>
               <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Python</div>
             </div>
+
+            <div className="mt-5">
+              <div className="badge badge-primary  badge-sm rounded-sm bg-black text-white">
+                Web
+                <FontAwesomeIcon icon={faLink as IconProp} />
+              </div>
+
+              <div className="badge badge-primary  badge-sm rounded-sm bg-black mx-2  text-white">
+                Code
+                <FontAwesomeIcon icon={faCode as IconProp} />
+              </div>
+            </div>
           </div>
-          <div className="w-full mt-5 grid grid-cols-3 gap-2  grid-flow-row  ">
-            {currentProject.images.map((img, index) => {
-              return (
-                <div key={index} className="">
-                  <Img src={`${img}-${theme}.png`} width={900} height={530} />
-                </div>
-              );
-            })}
+          {/* <div className="w-full mt-5 grid grid-cols-3 gap-2  grid-flow-row  "> */}
+          <div className="w-full mt-5 grid grid-cols-3 gap-2  grid-flow-row">
+            <Gallery>
+              {currentProject.images.map((img, index) => {
+                return (
+                  <div key={index} className="mt-5">
+                    <Item original={`${img}-${theme}.png`} thumbnail={`${img}-${theme}.png`} width="1024" height="768">
+                      {/*//@ts-ignore */}
+                      {({ ref, open }) => <img ref={ref} onClick={open} src={`${img}-${theme}.png`} />}
+                    </Item>
+                  </div>
+                );
+              })}
+            </Gallery>
           </div>
 
           {/* 
