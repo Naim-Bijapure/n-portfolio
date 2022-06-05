@@ -79,22 +79,24 @@ export default function Project() {
               eum itaque quasi quis animi!
             </div>
 
+            <div className="divider"></div>
+
             <div className="text-lg font-bold">Stack</div>
-            <div className="flex ">
-              <div className="badge badge-primary  badge-lg rounded-sm">Reactjs</div>
-              <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Node</div>
-              <div className="badge badge-primary ml-2 badge-lg rounded-sm ">Python</div>
+            <div className="flex">
+              <div className="badge badge-info  badge-lg rounded-sm  mx-1 ">Reactjs</div>
+              <div className="badge badge-info  badge-lg rounded-sm mx-1 ">Node</div>
+              <div className="badge badge-info  badge-lg rounded-sm mx-1  ">Python</div>
             </div>
 
-            <div className="mt-5">
-              <div className="badge badge-primary  badge-sm rounded-sm bg-black text-white">
+            <div className="mt-5 mx-1">
+              <div className="badge badge-ghost  badge-md rounded-sm  p-2 ">
+                <FontAwesomeIcon icon={faLink as IconProp} className="mx-1" />
                 Web
-                <FontAwesomeIcon icon={faLink as IconProp} />
               </div>
 
-              <div className="badge badge-primary  badge-sm rounded-sm bg-black mx-2  text-white">
+              <div className="badge badge-ghost  badge-md rounded-sm  p-2 mx-1">
+                <FontAwesomeIcon icon={faCode as IconProp} className="mx-1" />
                 Code
-                <FontAwesomeIcon icon={faCode as IconProp} />
               </div>
             </div>
           </div>

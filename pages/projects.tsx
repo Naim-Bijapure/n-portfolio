@@ -53,7 +53,7 @@ export default function Projects() {
               Projects
             </h1>
 
-            <div className="tabs  flex">
+            <div className="tabs   flex">
               <a
                 className={`tab tab-bordered w-full lg:w-auto  ${
                   selectedProjects === "work" ? "tab-active text--primary  font--bold " : ""
@@ -62,7 +62,29 @@ export default function Projects() {
                   changeProjects("work");
                 }}
               >
-                Work Projects
+                Reactjs
+              </a>
+
+              <a
+                className={`tab tab-bordered w-full lg:w-auto  ${
+                  selectedProjects === "work" ? "tab-active text--primary  font--bold " : ""
+                }`}
+                onClick={() => {
+                  changeProjects("work");
+                }}
+              >
+                React Native
+              </a>
+
+              <a
+                className={`tab tab-bordered w-full lg:w-auto  ${
+                  selectedProjects === "work" ? "tab-active text--primary  font--bold " : ""
+                }`}
+                onClick={() => {
+                  changeProjects("work");
+                }}
+              >
+                Ionic
               </a>
               <a
                 className={`tab tab-bordered w-full lg:w-auto  ${
@@ -72,7 +94,29 @@ export default function Projects() {
                   changeProjects("side");
                 }}
               >
-                Side Projects
+                Node
+              </a>
+
+              <a
+                className={`tab tab-bordered w-full lg:w-auto  ${
+                  selectedProjects === "side" ? " tab-active text--primary  font--bold" : ""
+                }`}
+                onClick={() => {
+                  changeProjects("side");
+                }}
+              >
+                Python
+              </a>
+
+              <a
+                className={`tab tab-bordered w-full lg:w-auto  ${
+                  selectedProjects === "side" ? " tab-active text--primary  font--bold" : ""
+                }`}
+                onClick={() => {
+                  changeProjects("side");
+                }}
+              >
+                Web3
               </a>
             </div>
           </div>
@@ -94,11 +138,6 @@ export default function Projects() {
                   <ProjectCard title={obj.title} description={obj.description} key={index} />
                 </motion.div>
               );
-              // return (
-              //   <>
-              //     <ProjectCard title={obj.title} description={obj.description} key={index} />
-              //   </>
-              // );
             })}
           </div>
         </div>
