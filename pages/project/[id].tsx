@@ -69,35 +69,51 @@ export default function Project() {
       <LayoutWrapper>
         <div className={`flex flex-col items-start bg-[url('/static/images/bg-project-${theme}.svg')]`}>
           <div className="">
-            <div className="text-5xl font-bold my-2">vDigi Docr</div>
-            <div className="text-lg my-2 font-thin italic ">a first impression tag line</div>
+            <div className="text-5xl font-bold my-2 ">{currentProject.title}</div>
+            <div className="text-lg my-2 font-thin italic text-secondary ">{currentProject.tagLine}</div>
             <div className="text-sm my-2 lg:w-[60%] ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id, tempore unde
-              expedita recusandae ut laboriosam repellendus soluta, eaque illum voluptatum eligendi ipsum eum itaque
-              quasi quis animi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deserunt, quibusdam id,
-              tempore unde expedita recusandae ut laboriosam repellendus soluta, eaque illum voluptatum eligendi ipsum
-              eum itaque quasi quis animi!
+              {currentProject.description.split("//").map((line, index) => (
+                <div key={index} className="my-2">
+                  {line}
+                </div>
+              ))}
             </div>
 
             <div className="divider"></div>
 
             <div className="text-lg font-bold">Stack</div>
-            <div className="flex">
-              <div className="badge badge-info  badge-lg rounded-sm  mx-1 ">Reactjs</div>
-              <div className="badge badge-info  badge-lg rounded-sm mx-1 ">Node</div>
-              <div className="badge badge-info  badge-lg rounded-sm mx-1  ">Python</div>
+            <div className="flex flex-wrap">
+              {currentProject.techStack.map((techName, index) => {
+                return (
+                  <div key={index}>
+                    <div className="badge badge-info  badge-lg rounded-sm  m-1 ">{techName}</div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-5 mx-1">
-              <div className="badge badge-ghost  badge-md rounded-sm  p-2 ">
-                <FontAwesomeIcon icon={faLink as IconProp} className="mx-1" />
-                Web
-              </div>
+              <a href={currentProject.view as string} target="_blank" rel="noreferrer">
+                <div className="badge badge-ghost  badge-md rounded-sm  p-2 ">
+                  <FontAwesomeIcon icon={faLink as IconProp} className="mx-1" />
+                  Web
+                </div>
+              </a>
 
-              <div className="badge badge-ghost  badge-md rounded-sm  p-2 mx-1">
-                <FontAwesomeIcon icon={faCode as IconProp} className="mx-1" />
-                Code
-              </div>
+              <a
+                href={currentProject.sourceCode ? (currentProject.sourceCode as string) : "#"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div
+                  className={`badge badge-ghost  badge-md rounded-sm  p-2 mx-1 ${
+                    currentProject.sourceCode === false && "text-gray-400"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faCode as IconProp} className="mx-1" />
+                  Code
+                </div>
+              </a>
             </div>
           </div>
           {/* <div className="w-full mt-5 grid grid-cols-3 gap-2  grid-flow-row  "> */}
@@ -106,89 +122,16 @@ export default function Project() {
               {currentProject.images.map((img, index) => {
                 return (
                   <div key={index} className="mt-5">
-                    <Item original={`${img}-${theme}.png`} thumbnail={`${img}-${theme}.png`} width="1024" height="768">
+                    {/* <Item original={`${img}-${theme}.png`} thumbnail={`${img}-${theme}.png`} width="1024" height="768"> */}
+                    <Item original={`${img}`} thumbnail={`${img}`} width="1024" height="768">
                       {/*//@ts-ignore */}
-                      {({ ref, open }) => <img ref={ref} onClick={open} src={`${img}-${theme}.png`} />}
+                      {({ ref, open }) => <img ref={ref} onClick={open} src={`${img}`} />}
                     </Item>
                   </div>
                 );
               })}
             </Gallery>
           </div>
-
-          {/* 
-          <div className="w-full text-center">
-            <Slider {...settings} className="">
-              {currentProject.images.map((img, index) => {
-                return (
-                  <div key={index}>
-                    <Img src={`${img}-${theme}.png`} width={900} height={530} />
-                  </div>
-                );
-              })}
-            </Slider>
-          </div>
-          <div className="my-7">
-            <a target={"_blank"} href={currentProject.view as string} rel="noreferrer">
-              <button className="mx-2 btn btn-outline btn-primary" disabled={!currentProject.view as boolean}>
-                view
-              </button>
-            </a>
-            <button className="mx-2 btn btn-outline btn-primary " disabled={!currentProject.sourceCode as boolean}>
-              code
-            </button>
-          </div>
-          <div className="m-5 text-primary text-2xl font-bold n-heading-font ">{currentProject.tagLine}</div>
-          <div className="m-5 prose">
-            <div className="text-secondary font-semibold text-xl n-heading-font">{currentProject.title}</div>
-            <div className="">
-              {currentProject.description.split("//").map((line, index) => (
-                <div key={index} className="my-3">
-                  {line}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="m-5 prose ">
-            <div className="text-secondary font-semibold text-xl n-heading-font">Work & Challanges</div>
-            <div className="">
-              {currentProject.work.split("//").map((line, index) => (
-                <div key={index} className="my-3">
-                  {line}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="m-5 prose   w-full">
-            <div className="text-secondary font-semibold text-xl n-heading-font content-start">Technical Details</div>
-            {currentProject.tech["front"].length > 0 && (
-              <div className="prose m-2">
-                <div className="text-primary n-heading-font">Front-End</div>
-                {currentProject.tech["front"].map((value, index) => (
-                  <div key={index} className="badge badge-primary badge-outline m-1">
-                    {value}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="m-5 prose text-center">
-            <div className="text-neutral text-opacity-60 italic">Application demo</div>
-
-            <div className="">
-              <Img
-                placeholder="blur"
-                blurDataURL={`${currentProject.images[0]}-${theme}.png`}
-                src={`https://ipfs.io/ipfs/bafybeieepwrvigmcn45qdiohmr4xp2fz7jvoqb5xterzhzdxstdglnaspq/demo.gif`}
-                width={900}
-                height={530}
-                priority
-              />
-            </div>
-          </div> */}
         </div>
       </LayoutWrapper>
     </>

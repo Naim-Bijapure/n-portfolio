@@ -32,14 +32,15 @@ const LayoutWrapper = ({ children }) => {
           <div>
             <Link href="/" aria-label="Naim portfolio">
               <div className="flex items-center justify-between  text-accent font-semibold text-sm sm:text-sm">
-                {`~${router.asPath}`}{" "}
-                <Typewriter
+                {`~/`}
+                {/* {`~${router.asPath}`}{" "} */}
+                {/* <Typewriter
                   options={{
                     strings: [],
                     autoStart: true,
                     loop: true,
                   }}
-                />
+                /> */}
                 {/* <div className="mr-3">
                   <Logo />
                 </div> */}

@@ -7,11 +7,11 @@ import siteMetadata from "@/data/siteMetadata";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import projectsData from "../data/projectsData";
+import projectsData, { projectType } from "../data/projectsData";
 
 export default function Projects() {
   const [selectedProjects, setSelectedProjects] = useState("work");
-  const [currentProjects, setCurrentProjects] = useState([]);
+  const [currentProjects, setCurrentProjects] = useState<projectType[] | undefined>();
   useEffect(() => {
     let workProjects = projectsData.filter((obj) => obj.type === "work");
     setCurrentProjects(workProjects);
@@ -62,39 +62,7 @@ export default function Projects() {
                   changeProjects("work");
                 }}
               >
-                Reactjs
-              </a>
-
-              <a
-                className={`tab tab-bordered w-full lg:w-auto  ${
-                  selectedProjects === "work" ? "tab-active text--primary  font--bold " : ""
-                }`}
-                onClick={() => {
-                  changeProjects("work");
-                }}
-              >
-                React Native
-              </a>
-
-              <a
-                className={`tab tab-bordered w-full lg:w-auto  ${
-                  selectedProjects === "work" ? "tab-active text--primary  font--bold " : ""
-                }`}
-                onClick={() => {
-                  changeProjects("work");
-                }}
-              >
-                Ionic
-              </a>
-              <a
-                className={`tab tab-bordered w-full lg:w-auto  ${
-                  selectedProjects === "side" ? " tab-active text--primary  font--bold" : ""
-                }`}
-                onClick={() => {
-                  changeProjects("side");
-                }}
-              >
-                Node
+                Work
               </a>
 
               <a
@@ -105,40 +73,37 @@ export default function Projects() {
                   changeProjects("side");
                 }}
               >
-                Python
-              </a>
-
-              <a
-                className={`tab tab-bordered w-full lg:w-auto  ${
-                  selectedProjects === "side" ? " tab-active text--primary  font--bold" : ""
-                }`}
-                onClick={() => {
-                  changeProjects("side");
-                }}
-              >
-                Web3
+                Personal
               </a>
             </div>
           </div>
 
           <div className="flex flex-col lg:flex-row  bd--red">
-            {currentProjects.map((obj, index) => {
-              return (
-                <motion.div
-                  key={obj.title}
-                  initial="start"
-                  animate="end"
-                  variants={{
-                    start: { opacity: 0, x: -((index + 1) * 200) },
-                    end: { opacity: 1, x: 0 },
-                  }}
-                  transition={{ duration: 0.9 }}
-                  className="flex justify-center mt-3 lg:mt-0 lg:w-full"
-                >
-                  <ProjectCard title={obj.title} description={obj.description} key={index} />
-                </motion.div>
-              );
-            })}
+            {currentProjects !== undefined &&
+              currentProjects.map((obj, index) => {
+                return (
+                  <div key={obj.title}>
+                    <motion.div
+                      initial="start"
+                      animate="end"
+                      variants={{
+                        start: { opacity: 0, x: -((index + 1) * 200) },
+                        end: { opacity: 1, x: 0 },
+                      }}
+                      transition={{ duration: 0.9 }}
+                      className="flex justify-center mt-3 lg:mt-0 lg:w-full"
+                    >
+                      <ProjectCard
+                        title={obj.title}
+                        description={obj.description}
+                        key={index}
+                        techStack={obj.techStack.slice(0, 3)}
+                        thumbnailImg={obj.images[0]}
+                      />
+                    </motion.div>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </LayoutWrapper>

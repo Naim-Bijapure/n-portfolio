@@ -14,9 +14,9 @@ import moment from "moment";
 import Img from "next/image";
 
 import LayoutWrapper from "../components/LayoutWrapper";
-import projectsData from "../data/projectsData";
-import Hero from "../components/Hero";
-import SocialIcon from "@/components/social-icons";
+// import projectsData from "../data/projectsData";
+// import Hero from "../components/Hero";
+// import SocialIcon from "@/components/social-icons";
 import { useEffect, useState } from "react";
 
 const Home = () => {
@@ -34,26 +34,28 @@ const Home = () => {
     <LayoutWrapper>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      <div className="bd--red flex flex-col justify-center items-start absolute top-[40%] left-0 right-0 m-5 lg:left-[15%] lg:top-[30%] ">
-        <div className="text-4xl n-heading-font m-1 text-neutral">
-          Hi, I am Naim <span className="wave">👋</span>
-        </div>
-        <div className="m-1 text-xl text-neutral  ">Software engineer</div>
-        <div className="m-1 text-secondary  italic">
-          <RoughNotation type="box" color="black" show={show}>
-            currently transitioning to web3
-          </RoughNotation>
-        </div>
-        <div className="m-1 mt-2  ">
-          <span>Read more</span>
+      <div className="flex  flex-col-reverse md:justify-between">
+        <div className="bd--red flex flex-col justify-center items-start absolute top-[40%] left-0 right-0 m-5 lg:left-[15%] lg:top-[30%] ">
+          <div className="text-4xl n-heading-font m-1 text-neutral">
+            Hi, I am Naim <span className="wave">👋</span>
+          </div>
+          <div className="m-1 text-xl text-neutral  ">Software engineer</div>
+          <div className="m-1 text-secondary  italic">
+            <RoughNotation type="box" color="black" show={show}>
+              currently transitioning to web3
+            </RoughNotation>
+          </div>
+          <div className="m-1 mt-2  ">
+            <span>Read more</span>
 
-          <Link key={"about_me"} href={"/about"}>
-            <span className="mx-2">
-              <RoughNotation type="highlight" color="#c9f3ff" show={show} padding={10}>
-                about me
-              </RoughNotation>
-            </span>
-          </Link>
+            <Link key={"about_me"} href={"/about"}>
+              <span className="mx-2">
+                <RoughNotation type="highlight" color="#c9f3ff" show={show} padding={10}>
+                  about me
+                </RoughNotation>
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
       {/* <Hero welcome="cool man" /> */}
